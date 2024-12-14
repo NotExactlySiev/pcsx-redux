@@ -4,12 +4,6 @@
 [submodule "third_party/uC-sdk"]
 	path = third_party/uC-sdk
 	url = https://github.com/grumpycoders/uC-sdk.git
-[submodule "third_party/googletest"]
-	path = third_party/googletest
-	url = https://github.com/google/googletest.git
-[submodule "third_party/fmt"]
-	path = third_party/fmt
-	url = https://github.com/fmtlib/fmt.git
 [submodule "third_party/libcester"]
 	path = third_party/libcester
 	url = https://github.com/exoticlibraries/libcester.git
@@ -25,9 +19,6 @@
 [submodule "third_party/zep"]
 	path = third_party/zep
 	url = https://github.com/grumpycoders/zep.git
-[submodule "third_party/expected"]
-	path = third_party/expected
-	url = https://github.com/TartanLlama/expected.git
 [submodule "third_party/vixl"]
 	path = third_party/vixl
 	url = https://github.com/grumpycoders/vixl
