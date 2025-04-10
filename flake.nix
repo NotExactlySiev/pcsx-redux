@@ -37,7 +37,10 @@
       pcsx-redux = native.callPackage ./pcsx-redux.nix {
           src = self;
           platforms = lib.systems.flakeExposed;
+          crossCC = cross.buildPackages.gcc-unwrapped;
+          crossBinutils = cross.buildPackages.binutils-unwrapped;
       };
+
       # FIXME: default gets duplicated in githubActions
       # default = self.packages.${system}.pcsx-redux;
     });

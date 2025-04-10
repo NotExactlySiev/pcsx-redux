@@ -30,6 +30,8 @@
   src,
   debugBuild ? false,
   platforms,
+  crossCC,
+  crossBinutils,
 }:
 let
   zep = fetchFromGitHub {
@@ -141,6 +143,10 @@ in stdenv.mkDerivation {
   nativeBuildInputs = [
     pkg-config
     imagemagick
+    
+    # hacky. oh well
+    crossCC
+    crossBinutils
   ];
 
   buildInputs = [
@@ -167,32 +173,14 @@ in stdenv.mkDerivation {
     llhttp
   ];
 
-/*
-  openbios = stdenvMips.mkDerivation {
-    pname = "openbios";
-    version = "0.99";
-    inherit src;
-
-    makeFlags = [
-      "PREFIX=mipsel-unknown-none-elf"
-    ];
-
-    buildPhase = ''
-      make openbios
-    '';
-  };
-*/
-
   makeFlags = [
     "DESTDIR=$(out)"
   ];
 
-  buildPhase = "";
-
   installPhase = ''
     runHook preInstall
 
-    #make install
+    make install
     make install-openbios PREFIX=mipsel-unknown-none-elf
 
     runHook postInstall
